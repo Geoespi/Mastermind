@@ -43,7 +43,6 @@ namespace Mastermind
             //MMDrawColor(0, solution);
             for (int i = difficultyTurns; i > 0 && inGame; i--)
             {
-                //string[] answer = MMGetAnswerFromUser();
                 string[] answer = MMUserSelectColor(i);
                 if (answer.Length != 4)
                 {
@@ -64,7 +63,6 @@ namespace Mastermind
                     victory = true;
                 }
             }
-
 
             MMDrawColor(0, solution);
             Console.ResetColor();
@@ -108,20 +106,7 @@ namespace Mastermind
                 }
             }
 
-
-
             return response.ToArray();
-        }
-        public static string[] MMGetAnswerFromUser()
-        {
-            Console.ResetColor();
-            Console.SetCursorPosition(0, Console.WindowHeight - 2);
-            Console.Write("                                                               ");
-            Console.SetCursorPosition(0, Console.WindowHeight - 3);
-            Console.WriteLine("Write out your answer separating the colors by spaces (\" \"):");
-            string rawAnswer = Console.ReadLine();
-            string[] answer = rawAnswer.Split(' ');
-            return answer;
         }
         public static string MMMainMenu()
         {
@@ -183,8 +168,6 @@ namespace Mastermind
                     return "medium";
                     break;
             }
-
-
         }
 
         public static string MMDetermineColorFromInt(int color)
@@ -207,7 +190,9 @@ namespace Mastermind
                     return "";
             }
         }
+
         //funciones de dibujado
+
         public static void MMDrawBoard(int turns)
         {
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -323,7 +308,6 @@ namespace Mastermind
             Console.Write("*      ");
             while (colors.Count != 4)
             {
-
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo consoleKeyPressed = Console.ReadKey(true);
